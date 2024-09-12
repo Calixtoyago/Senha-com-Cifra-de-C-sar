@@ -1,23 +1,24 @@
 import string, random
 
-maiuscula = list(string.ascii_uppercase)
-minuscula = list(string.ascii_lowercase)
-digitos = list(string.digits)
+maiuscula = (string.ascii_uppercase)
+minuscula = (string.ascii_lowercase)
+digitos = (string.digits)
+
 senha = []
 nova_senha = []
 quantidade = 8
 
 # Gerador de senha aleatória
-qnt_letras = random.randint(1, (quantidade - 2))
-qnt_numeros = random.randint(1, (quantidade - qnt_letras - 1))
-qnt_especiais = quantidade - qnt_numeros - qnt_letras
+qnt_maiuscula = random.randint(1, (quantidade - 2))
+qnt_numeros = random.randint(1, (quantidade - qnt_maiuscula - 1))
+qnt_minuscula = quantidade - qnt_numeros - qnt_maiuscula
 
-for c in range(qnt_letras):
+for c in range(qnt_maiuscula):
     senha.append(random.choice(maiuscula))
 for c in range(qnt_numeros):
-    senha.append(random.choice(minuscula))
-for c in range(qnt_especiais):
     senha.append(random.choice(digitos))
+for c in range(qnt_minuscula):
+    senha.append(random.choice(minuscula))
 random.shuffle(senha)
 
 def cifraCesar(senha):
